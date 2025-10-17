@@ -1,3 +1,5 @@
 env_webproject
 djangoproject/__pycache__
-
+__pycache__
+.env
+./app/djangoproject/__pycache__

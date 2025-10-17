@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+# import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "wait_for_db",
+    "pastes.apps.PastesConfig",
 ]
 
 MIDDLEWARE = [
@@ -73,18 +76,18 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "USERS",
-        "USER": "django_admin",
-        "PASSWORD": "password",
-        "HOST": "localhost",
-        "PORT": "8000",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # "default": {
+    #     "ENGINE": "django.db.backends.mysql",
+    #     "NAME": os.getenv("DB_NAME"),  # Name of your MySQL database
+    #     "USER": os.getenv("DB_USER"),  # MySQL username
+    #     "PASSWORD": os.getenv("DB_PASSWORD"),  # MySQL password
+    #     "HOST": os.getenv("DB_HOST"),  # MySQL service name
+    #     "PORT": "3306",  # MySQL default port
+    # }
 }
 
 
@@ -125,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = "/app/staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
