@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My Anonymous Pastebin{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'pastes/css/styles.css' %}">
+
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'create_paste' %}">
+                    <h1>PasteBin Clone</h1>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'create_paste' %}" class="btn btn-primary">Create New Paste</a></li>
+
+                    </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="container">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Anonymous Paste Service</p>
+        </div>
+    </footer>
+
+
+    {% block footer_scripts %}{% endblock %}
+</body>
+</html>

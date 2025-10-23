@@ -1,24 +1,29 @@
-{% load static %}
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>paste creation</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'pastes/css/styles.css' %}">
+{% extends "base.html" %}
 
-    </head>
-    <body>
+{% block title %}Create New Paste{% endblock %}
 
-    <img src="{% static 'pastes/shiggen.png' %}">
+{% block content %}
+<div class="paste-creation-form-wrapper">
+    <h2>Paste Something New</h2>
+
     <form method="POST">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.content }}
-        <button type="submit">Submit</button>
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title (Optional):</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group large-textarea">
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+
+        {% if form.media %}
+            {{ form.media }}
+        {% endif %}
+
+        <button type="submit" class="btn btn-success">Submit Paste</button>
     </form>
-        
-    </body>
-</html>
+</div>
+{% endblock %}

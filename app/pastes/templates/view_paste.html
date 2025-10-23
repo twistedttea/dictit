@@ -1,25 +1,20 @@
-<!doctype html>
-<html class="no-js" lang="">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>view a paste :3</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}
+    {{ paste.title }} | Pastebin
+{% endblock %}
 
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+{% block content %}
+    <div class="paste-container">
+        <h1 class="paste-title">{{ paste.title }}</h1>
 
-</head>
+        <p class="paste-meta">
+            Created on: {{ paste.date|date:"F j, Y, P" }}
+        </p>
 
-<body>
+        <pre class="paste-content">{{ paste.content }}</pre>
 
-    <form method="GET">
-        {% csrf_token %}
-        {{ form }}
-    </form>
+    </div>
 
-</body
-
-</html>
+    <a href="{% url 'create_paste' %}" class="btn create-new-btn">Create New Paste</a>
+{% endblock %}
