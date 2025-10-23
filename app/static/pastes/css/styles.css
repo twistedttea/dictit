@@ -1,0 +1,157 @@
+/* ===== Body and general layout ===== */
+body {
+    background-color: #f5f5f5; /* light neutral background */
+    color: #333;
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== Header ===== */
+.site-header {
+    background-color: #e0e0e0; /* muted gray */
+    border-bottom: 1px solid #aaa;
+    padding: 15px 0;
+}
+
+.site-header .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.site-header .main-nav ul {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.site-header .main-nav a {
+    text-decoration: none;
+    padding: 6px 12px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+.site-header .main-nav a:hover {
+    background-color: #d0d0d0;
+    border-color: #888;
+}
+
+/* ===== Main content wrapper ===== */
+.content-wrapper {
+    padding: 30px 0;
+}
+
+/* Messages styling */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border: 1px solid #999;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.messages li.error {
+    border-color: #cc6666;
+    background-color: #fdd;
+    color: #900;
+}
+
+.messages li.success {
+    border-color: #66cc66;
+    background-color: #dfd;
+    color: #060;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: #e0e0e0;
+    border-top: 1px solid #aaa;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* ===== Paste form wrapper (previously defined) ===== */
+.paste-creation-form-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #aaa;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #333;
+}
+
+/* Form heading */
+.paste-creation-form-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    text-align: center;
+    color: #444;
+}
+
+/* Form groups and labels */
+.paste-creation-form-wrapper .form-group {
+    margin-bottom: 15px;
+}
+
+.paste-creation-form-wrapper .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inputs and textarea */
+.paste-creation-form-wrapper input[type="text"],
+.paste-creation-form-wrapper textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.paste-creation-form-wrapper .form-group.large-textarea textarea {
+    height: 360px;
+    resize: vertical;
+}
+
+/* Submit button */
+.paste-creation-form-wrapper .btn-success {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: 1px solid #999;
+    cursor: pointer;
+    font-family: Verdana, Geneva, sans-serif;
+    text-decoration: none;
+}
+
+.paste-creation-form-wrapper .btn-success:hover {
+    background-color: #d0d0d0;
+    border-color: #888;
+}

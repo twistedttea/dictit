@@ -6,26 +6,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: django-dictit
+    container_name: django-pastebin
     restart: always
     volumes:
        - ./app:/app
     ports:
        - "8000:8000"
-    environment:
-       - DB_HOST=${DB_HOST} # Reference environment variable from .env file
-       - DB_NAME=${DB_NAME}
-       - DB_USER=${DB_USER}
-       - DB_PASSWORD=${DB_PASSWORD}
-       - SECRET_KEY=${SECRET_KEY}
-       - DEBUG=${DEBUG}
-       - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
-       - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS}
+    # environment:
+    #    - DB_HOST=${DB_HOST} # Reference environment variable from .env file
+    #    - DB_NAME=${DB_NAME}
+    #    - DB_USER=${DB_USER}
+    #    - DB_PASSWORD=${DB_PASSWORD}
+    #    - SECRET_KEY=${SECRET_KEY}
+    #    - DEBUG=${DEBUG}
+    #    - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
+    #    - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS}
     # depends_on:
     #   db: # Make sure the database service starts first
     #     condition: service_healthy
-    env_file:
-       - .env
+    # env_file:
+    #    - .env
 
     command: >
       sh -c "python manage.py wait_for_db &&
