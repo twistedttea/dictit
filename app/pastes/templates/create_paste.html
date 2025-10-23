@@ -19,9 +19,10 @@
             {{ form.content }}
         </div>
 
-        {% if form.media %}
-            {{ form.media }}
-        {% endif %}
+        <div class="form-group">
+            <label for="{{ form.private.id_for_label }}">Private:</label>
+            {{ form.private}}
+        </div>
 
         <button type="submit" class="btn btn-success">Submit Paste</button>
     </form>

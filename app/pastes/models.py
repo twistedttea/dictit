@@ -23,6 +23,7 @@ class pastebin_entry(models.Model):
     short_id = models.CharField(max_length=10, unique=True, editable=False)
     date = models.DateTimeField("creation date", auto_now_add=True)
     title = models.CharField(max_length=100)
+    private = models.BooleanField(default=True)
     content = models.TextField()
 
     def save(self, *args, **kwargs):

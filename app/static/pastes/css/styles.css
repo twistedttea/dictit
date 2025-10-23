@@ -1,10 +1,14 @@
-/* ===== Body and general layout ===== */
+/* ===== Body and general layout (No Change) ===== */
+html {
+    height: 100%;
+}
 body {
     background-color: #f5f5f5; /* light neutral background */
     color: #333;
     font-family: Verdana, Geneva, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 .container {
@@ -13,7 +17,7 @@ body {
     padding: 0 15px;
 }
 
-/* ===== Header ===== */
+/* ===== Header (No Change) ===== */
 .site-header {
     background-color: #e0e0e0; /* muted gray */
     border-bottom: 1px solid #aaa;
@@ -48,12 +52,13 @@ body {
     border-color: #888;
 }
 
-/* ===== Main content wrapper ===== */
+/* ===== Main content wrapper (No Change) ===== */
 .content-wrapper {
     padding: 30px 0;
+    flex-grow: 1;
 }
 
-/* Messages styling */
+/* Messages styling (No Change) */
 .messages {
     list-style: none;
     padding: 0;
@@ -80,7 +85,7 @@ body {
     color: #060;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer (No Change) ===== */
 .site-footer {
     background-color: #e0e0e0;
     border-top: 1px solid #aaa;
@@ -90,8 +95,16 @@ body {
     color: #333;
 }
 
-/* ===== Paste form wrapper (previously defined) ===== */
-.paste-creation-form-wrapper {
+/*
+ * =======================================================
+ * REVISED AND NEW STYLES FOR CONSISTENCY
+ * =======================================================
+ */
+
+/* Unified Form Wrapper Styling */
+.paste-form-wrapper,
+.paste-creation-form-wrapper, /* Keep for compatibility */
+.paste-search-form-wrapper { /* New class from revised template */
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
@@ -101,29 +114,43 @@ body {
     color: #333;
 }
 
-/* Form heading */
-.paste-creation-form-wrapper h2 {
+/* Form heading (Applied to all wrappers) */
+.paste-form-wrapper h2,
+.paste-search-form-wrapper h2 {
     margin-bottom: 20px;
     font-size: 1.6em;
     text-align: center;
     color: #444;
 }
+.paste-form-wrapper h3,
+.paste-search-form-wrapper h3 { /* Style for Search Results heading */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
 
-/* Form groups and labels */
-.paste-creation-form-wrapper .form-group {
+/* Form groups and labels (Applied to all wrappers) */
+.paste-form-wrapper .form-group,
+.paste-search-form-wrapper .form-group {
     margin-bottom: 15px;
 }
 
-.paste-creation-form-wrapper .form-group label {
+.paste-form-wrapper .form-group label,
+.paste-search-form-wrapper .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
 }
 
-/* Inputs and textarea */
-.paste-creation-form-wrapper input[type="text"],
-.paste-creation-form-wrapper textarea {
+/* Inputs and textarea (Applied to all wrappers) */
+.paste-form-wrapper input[type="text"],
+.paste-form-wrapper textarea,
+.paste-search-form-wrapper input[type="text"],
+.paste-search-form-wrapper textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -133,25 +160,206 @@ body {
     box-sizing: border-box;
 }
 
-.paste-creation-form-wrapper .form-group.large-textarea textarea {
+.paste-form-wrapper .form-group.large-textarea textarea {
     height: 360px;
     resize: vertical;
 }
 
-/* Submit button */
-.paste-creation-form-wrapper .btn-success {
+/* ------------------------------------------- */
+/* General Button Styling for Consistency */
+/* Apply to <button> and <a> with .btn class */
+/* ------------------------------------------- */
+
+.btn,
+.paste-form-wrapper button[type="submit"],
+.paste-search-form-wrapper button[type="submit"],
+.paste-creation-form-wrapper .btn-success /* Keep old for compatibility */ {
+    /* Base Button Style */
     display: inline-block;
-    background-color: #e0e0e0;
-    color: #333;
+    font-family: inherit; /* Use body font */
     font-weight: bold;
     padding: 8px 14px;
-    border: 1px solid #999;
     cursor: pointer;
-    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
     text-decoration: none;
+    line-height: normal; /* For consistency across browsers */
+    box-sizing: border-box;
+    -webkit-appearance: none; /* Reset appearance for better cross-browser look */
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Default Style (Neutral) */
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #999;
 }
 
-.paste-creation-form-wrapper .btn-success:hover {
+.btn:hover,
+.paste-form-wrapper button[type="submit"]:hover,
+.paste-search-form-wrapper button[type="submit"]:hover {
     background-color: #d0d0d0;
     border-color: #888;
+}
+
+/* Primary Button Modifier (used in revised templates) */
+.btn-primary {
+    /* Overrides for a slightly more prominent look */
+    background-color: #99aab5; /* Light blue-gray for primary action */
+    color: #333;
+    border-color: #778899;
+}
+
+.btn-primary:hover {
+    background-color: #778899;
+    color: #fff;
+    border-color: #556677;
+}
+
+/* Success Button Modifier (Optional, for green success actions) */
+.btn-success {
+    background-color: #88cc88;
+    color: #333;
+    border-color: #55aa55;
+}
+
+.btn-success:hover {
+    background-color: #55aa55;
+    color: #fff;
+    border-color: #338833;
+}
+
+
+/* ------------------------------------------- */
+/* Search Results Styling (Links and Lists) */
+/* ------------------------------------------- */
+
+/* Style for the link element inside the form-group (as requested previously) */
+.form-group .paste-link {
+    color: #555; /* A subtle color for inline links */
+    text-decoration: underline;
+}
+
+.paste-form-wrapper ul,
+.paste-search-form-wrapper ul {
+    list-style: square; /* Distinct from nav/message lists */
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.paste-form-wrapper ul li,
+.paste-search-form-wrapper ul li {
+    margin-bottom: 10px;
+}
+
+.paste-form-wrapper ul li a,
+.paste-search-form-wrapper ul li a {
+    color: #555; /* Darker than body text to stand out slightly */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.paste-form-wrapper ul li a:hover,
+.paste-search-form-wrapper ul li a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+/* =======================================================
+ * NEW STYLES FOR VIEWING PASTE CONTENT
+ * ======================================================= */
+
+/* Outer wrapper for the paste content view */
+.paste-view-wrapper {
+    /* Use the container max-width but don't limit it to the smaller form size */
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff; /* White background to contrast with page body */
+    border: 1px solid #aaa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Metadata Block (e.g., Title, Author, Date, Syntax) */
+.paste-metadata {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc; /* Subtle separation */
+    font-size: 0.9em;
+    color: #666;
+}
+
+.paste-metadata h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: #333;
+}
+
+.paste-metadata p {
+    margin: 5px 0;
+}
+
+/* The actual box containing the paste text/code */
+/* The actual box containing the paste text/code */
+/* The actual box containing the paste text/code */
+/* The actual box containing the paste text/code */
+/* The actual box containing the paste text/code */
+.paste-content-box {
+    /* 1. Visual Style */
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+
+    /* 2. Remove all vertical constraints */
+    /* REMOVED: max-height is gone */
+    /* REMOVED: overflow-y: auto; is gone */
+
+    /* NEW: Explicitly set height to auto (default) to ensure growth */
+    height: auto;
+    min-height: 50px; /* Optional: ensures a minimum height, even for empty paste */
+
+    /* 3. Horizontal Bounding and Scrolling */
+
+    /* CRUCIAL: Enable horizontal scrolling only */
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical scrollbar unless content demands it */
+
+    /* Ensure padding/border is calculated correctly */
+    box-sizing: border-box;
+
+    /* Must have a defined width for horizontal overflow to work */
+    width: 100%;
+    max-width: 960px;
+}
+
+/* The element holding the code content (e.g., the <pre> tag) */
+.paste-code-content {
+    /* Font and Line Style */
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.95em;
+    line-height: 1.4;
+
+    /* Bounding by character count */
+    /* This sets the standard width of the content *before* scrollbar appears. */
+    min-width: 67ch;
+
+    /* CRUCIAL: Prevent line wrapping to force horizontal scrolling */
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    /* NEW: Allows the element to grow vertically with content */
+    display: block;
+    width: fit-content; /* Ensure the block only takes the width of its content */
+    margin: 0;
+}
+
+/* Styling for Line Numbers (if you use them) */
+.paste-line-numbers {
+    float: left;
+    margin-right: 15px;
+    color: #999; /* Muted color for line numbers */
+    text-align: right;
+    user-select: none; /* Prevents selecting line numbers */
 }

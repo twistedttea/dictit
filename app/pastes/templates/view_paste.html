@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block content %}
-    <div class="paste-container">
-        <h1 class="paste-title">{{ paste.title }}</h1>
+    <div class="paste-content-box">
+        <h1 class="paste-metadata h2">{{ paste.title }}</h1>
 
-        <p class="paste-meta">
-            Created on: {{ paste.date|date:"F j, Y, P" }}
+        <p class="paste-metadata">
+            Created on: {{ paste.date|date:"F j, Y, H:i T" }}
         </p>
-
-        <pre class="paste-content">{{ paste.content }}</pre>
+        <p class="paste-metadata">
+            Private? -> {{ paste.private }}
+        </p>
+        <pre class="paste-code-content">{{ paste.content }}</pre>
 
     </div>
 
-    <a href="{% url 'create_paste' %}" class="btn create-new-btn">Create New Paste</a>
 {% endblock %}

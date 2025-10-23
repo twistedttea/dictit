@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Search Pastes{% endblock %}
+
+{% block content %}
+<div class="paste-search-form-wrapper">
+    <h2>Search Public Pastes</h2>
+
+    <form method="get">
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+
+
+        <div class="form-group"> {# Wrap button in a form-group for consistent spacing #}
+            <button type="submit" class="btn btn-primary">Search Pastes</button>
+        </div>
+    </form>
+
+    <hr>
+
+    {% if pastes or request.GET %}
+    <h3>Search Results</h3>
+    {% endif %}
+
+    <ul>
+        {% for paste in pastes %}
+            <li>
+                <a href="/p/{{ paste.short_id }}">{{ paste.title }}</a>
+            </li>
+        {% empty %}
+            <li>No matching public pastes found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
