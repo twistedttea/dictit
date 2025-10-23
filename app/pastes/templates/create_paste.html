@@ -1,25 +1,24 @@
+{% load static %}
 <!doctype html>
 <html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>paste creation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'pastes/css/styles.css' %}">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Create a paste.</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
 
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-</head>
-
-<body>
-
+    <img src="{% static 'pastes/shiggen.png' %}">
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Create Paste</button>
+        {{ form.title }}
+        {{ form.content }}
+        <button type="submit">Submit</button>
     </form>
-
-</body>
-
+        
+    </body>
 </html>
