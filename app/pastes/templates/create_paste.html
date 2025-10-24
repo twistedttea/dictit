@@ -3,25 +3,21 @@
 {% block title %}Create New Paste{% endblock %}
 
 {% block content %}
-<div class="paste-creation-form-wrapper">
+<div class="paste-form-wrapper">
     <h2>Paste Something New</h2>
 
     <form method="POST">
         {% csrf_token %}
 
-        <div class="form-group">
+        <div class="paste-form-wrapper">
             <label for="{{ form.title.id_for_label }}">Title (Optional):</label>
             {{ form.title }}
-        </div>
-
-        <div class="form-group large-textarea">
+            <br></br>
             <label for="{{ form.content.id_for_label }}">Content:</label>
             {{ form.content }}
-        </div>
-
-        <div class="form-group">
+            <br></br>
             <label for="{{ form.private.id_for_label }}">Private:</label>
-            {{ form.private}}
+            {{ form.private }}
         </div>
 
         <button type="submit" class="btn btn-success">Submit Paste</button>

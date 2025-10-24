@@ -355,11 +355,3 @@ body {
     margin: 0;
 }
 
-/* Styling for Line Numbers (if you use them) */
-.paste-line-numbers {
-    float: left;
-    margin-right: 15px;
-    color: #999; /* Muted color for line numbers */
-    text-align: right;
-    user-select: none; /* Prevents selecting line numbers */
-}
