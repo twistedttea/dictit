@@ -11,4 +11,3 @@ class paste_form(forms.ModelForm):
 
 class search_paste_form(forms.Form):
     title = forms.CharField(required=False, label="Title")
-    short_id = forms.CharField(required=False, label="Short ID")

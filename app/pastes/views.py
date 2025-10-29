@@ -26,12 +26,6 @@ def view_paste(request, short_id):
 def search_paste(request):
     form = search_paste_form(request.GET or None)
 
-    # If short_id is given, redirect immediately
-    if form.is_valid() and form.cleaned_data.get("short_id"):
-        short_id = form.cleaned_data.get("short_id")
-        paste = get_object_or_404(pastebin_entry, short_id=short_id, private=False)
-        return redirect(f"/p/{paste.short_id}")
-
     # Otherwise search by title
     results = pastebin_entry.objects.filter(private=False)  # Only public pastes
 
